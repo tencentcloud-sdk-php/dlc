@@ -18,28 +18,20 @@ namespace TencentCloud\Dlc\V20210125\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 任务类型，任务如SQL查询等。
+ * CreateStoreLocation返回参数结构体
  *
- * @method SQLTask getSQLTask() 获取SQL查询任务
- * @method void setSQLTask(SQLTask $SQLTask) 设置SQL查询任务
- * @method SQLTask getSparkSQLTask() 获取Spark SQL查询任务
- * @method void setSparkSQLTask(SQLTask $SparkSQLTask) 设置Spark SQL查询任务
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class Task extends AbstractModel
+class CreateStoreLocationResponse extends AbstractModel
 {
     /**
-     * @var SQLTask SQL查询任务
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $SQLTask;
+    public $RequestId;
 
     /**
-     * @var SQLTask Spark SQL查询任务
-     */
-    public $SparkSQLTask;
-
-    /**
-     * @param SQLTask $SQLTask SQL查询任务
-     * @param SQLTask $SparkSQLTask Spark SQL查询任务
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -54,14 +46,8 @@ class Task extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SQLTask",$param) and $param["SQLTask"] !== null) {
-            $this->SQLTask = new SQLTask();
-            $this->SQLTask->deserialize($param["SQLTask"]);
-        }
-
-        if (array_key_exists("SparkSQLTask",$param) and $param["SparkSQLTask"] !== null) {
-            $this->SparkSQLTask = new SQLTask();
-            $this->SparkSQLTask->deserialize($param["SparkSQLTask"]);
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }

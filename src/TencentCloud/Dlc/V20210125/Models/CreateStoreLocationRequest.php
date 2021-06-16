@@ -18,28 +18,20 @@ namespace TencentCloud\Dlc\V20210125\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 任务类型，任务如SQL查询等。
+ * CreateStoreLocation请求参数结构体
  *
- * @method SQLTask getSQLTask() 获取SQL查询任务
- * @method void setSQLTask(SQLTask $SQLTask) 设置SQL查询任务
- * @method SQLTask getSparkSQLTask() 获取Spark SQL查询任务
- * @method void setSparkSQLTask(SQLTask $SparkSQLTask) 设置Spark SQL查询任务
+ * @method string getStoreLocation() 获取计算结果存储cos路径，如：cosn://bucketname/
+ * @method void setStoreLocation(string $StoreLocation) 设置计算结果存储cos路径，如：cosn://bucketname/
  */
-class Task extends AbstractModel
+class CreateStoreLocationRequest extends AbstractModel
 {
     /**
-     * @var SQLTask SQL查询任务
+     * @var string 计算结果存储cos路径，如：cosn://bucketname/
      */
-    public $SQLTask;
+    public $StoreLocation;
 
     /**
-     * @var SQLTask Spark SQL查询任务
-     */
-    public $SparkSQLTask;
-
-    /**
-     * @param SQLTask $SQLTask SQL查询任务
-     * @param SQLTask $SparkSQLTask Spark SQL查询任务
+     * @param string $StoreLocation 计算结果存储cos路径，如：cosn://bucketname/
      */
     function __construct()
     {
@@ -54,14 +46,8 @@ class Task extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SQLTask",$param) and $param["SQLTask"] !== null) {
-            $this->SQLTask = new SQLTask();
-            $this->SQLTask->deserialize($param["SQLTask"]);
-        }
-
-        if (array_key_exists("SparkSQLTask",$param) and $param["SparkSQLTask"] !== null) {
-            $this->SparkSQLTask = new SQLTask();
-            $this->SparkSQLTask->deserialize($param["SparkSQLTask"]);
+        if (array_key_exists("StoreLocation",$param) and $param["StoreLocation"] !== null) {
+            $this->StoreLocation = $param["StoreLocation"];
         }
     }
 }
