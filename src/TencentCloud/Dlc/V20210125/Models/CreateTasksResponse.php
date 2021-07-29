@@ -18,26 +18,26 @@ namespace TencentCloud\Dlc\V20210125\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeUsers返回参数结构体
+ * CreateTasks返回参数结构体
  *
- * @method integer getTotalCount() 获取查询到的用户总数
- * @method void setTotalCount(integer $TotalCount) 设置查询到的用户总数
- * @method array getUserSet() 获取查询到的授权用户信息集合
- * @method void setUserSet(array $UserSet) 设置查询到的授权用户信息集合
+ * @method string getBatchId() 获取本批次提交的任务的批次Id
+ * @method void setBatchId(string $BatchId) 设置本批次提交的任务的批次Id
+ * @method array getTaskIdSet() 获取任务Id集合，按照执行顺序排列
+ * @method void setTaskIdSet(array $TaskIdSet) 设置任务Id集合，按照执行顺序排列
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeUsersResponse extends AbstractModel
+class CreateTasksResponse extends AbstractModel
 {
     /**
-     * @var integer 查询到的用户总数
+     * @var string 本批次提交的任务的批次Id
      */
-    public $TotalCount;
+    public $BatchId;
 
     /**
-     * @var array 查询到的授权用户信息集合
+     * @var array 任务Id集合，按照执行顺序排列
      */
-    public $UserSet;
+    public $TaskIdSet;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class DescribeUsersResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 查询到的用户总数
-     * @param array $UserSet 查询到的授权用户信息集合
+     * @param string $BatchId 本批次提交的任务的批次Id
+     * @param array $TaskIdSet 任务Id集合，按照执行顺序排列
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,17 +62,12 @@ class DescribeUsersResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
-            $this->TotalCount = $param["TotalCount"];
+        if (array_key_exists("BatchId",$param) and $param["BatchId"] !== null) {
+            $this->BatchId = $param["BatchId"];
         }
 
-        if (array_key_exists("UserSet",$param) and $param["UserSet"] !== null) {
-            $this->UserSet = [];
-            foreach ($param["UserSet"] as $key => $value){
-                $obj = new UserInfo();
-                $obj->deserialize($value);
-                array_push($this->UserSet, $obj);
-            }
+        if (array_key_exists("TaskIdSet",$param) and $param["TaskIdSet"] !== null) {
+            $this->TaskIdSet = $param["TaskIdSet"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
