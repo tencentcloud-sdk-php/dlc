@@ -26,6 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setOffset(integer $Offset) 设置分页查询偏移量
  * @method integer getLimit() 获取分页查询Limit
  * @method void setLimit(integer $Limit) 设置分页查询Limit
+ * @method string getTaskId() 获取执行实例id
+ * @method void setTaskId(string $TaskId) 设置执行实例id
  */
 class DescribeSparkAppTasksRequest extends AbstractModel
 {
@@ -45,9 +47,15 @@ class DescribeSparkAppTasksRequest extends AbstractModel
     public $Limit;
 
     /**
+     * @var string 执行实例id
+     */
+    public $TaskId;
+
+    /**
      * @param string $JobId spark作业Id
      * @param integer $Offset 分页查询偏移量
      * @param integer $Limit 分页查询Limit
+     * @param string $TaskId 执行实例id
      */
     function __construct()
     {
@@ -72,6 +80,10 @@ class DescribeSparkAppTasksRequest extends AbstractModel
 
         if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
             $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
     }
 }
