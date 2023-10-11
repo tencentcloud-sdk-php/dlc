@@ -20,14 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * UpgradeDataEngineImage请求参数结构体
  *
-
+ * @method string getDataEngineId() 获取引擎ID
+ * @method void setDataEngineId(string $DataEngineId) 设置引擎ID
  */
 class UpgradeDataEngineImageRequest extends AbstractModel
 {
-
+    /**
+     * @var string 引擎ID
+     */
+    public $DataEngineId;
 
     /**
-
+     * @param string $DataEngineId 引擎ID
      */
     function __construct()
     {
@@ -42,6 +46,8 @@ class UpgradeDataEngineImageRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-
+        if (array_key_exists("DataEngineId",$param) and $param["DataEngineId"] !== null) {
+            $this->DataEngineId = $param["DataEngineId"];
+        }
     }
 }
