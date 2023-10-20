@@ -20,14 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeLakeFsTaskResult请求参数结构体
  *
-
+ * @method string getFsPath() 获取需要访问的任务结果路径
+ * @method void setFsPath(string $FsPath) 设置需要访问的任务结果路径
  */
 class DescribeLakeFsTaskResultRequest extends AbstractModel
 {
-
+    /**
+     * @var string 需要访问的任务结果路径
+     */
+    public $FsPath;
 
     /**
-
+     * @param string $FsPath 需要访问的任务结果路径
      */
     function __construct()
     {
@@ -42,6 +46,8 @@ class DescribeLakeFsTaskResultRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-
+        if (array_key_exists("FsPath",$param) and $param["FsPath"] !== null) {
+            $this->FsPath = $param["FsPath"];
+        }
     }
 }
