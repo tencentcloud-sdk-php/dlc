@@ -18,19 +18,47 @@ namespace TencentCloud\Dlc\V20210125\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeSaleResourceInfo返回参数结构体
+ * ListImages返回参数结构体
  *
- * @method array getSaleResourceInfoList() 获取可售卖资源规格列表，包含规格、步长、单账户上限、以及库存情况
- * @method void setSaleResourceInfoList(array $SaleResourceInfoList) 设置可售卖资源规格列表，包含规格、步长、单账户上限、以及库存情况
+ * @method integer getTotal() 获取总记录数
+ * @method void setTotal(integer $Total) 设置总记录数
+ * @method integer getPage() 获取当前页码（从1开始）
+ * @method void setPage(integer $Page) 设置当前页码（从1开始）
+ * @method integer getPageSize() 获取页数
+ * @method void setPageSize(integer $PageSize) 设置页数
+ * @method integer getTotalPages() 获取总页数
+ * @method void setTotalPages(integer $TotalPages) 设置总页数
+ * @method array getItems() 获取镜像列表
+ * @method void setItems(array $Items) 设置镜像列表
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeSaleResourceInfoResponse extends AbstractModel
+class ListImagesResponse extends AbstractModel
 {
     /**
-     * @var array 可售卖资源规格列表，包含规格、步长、单账户上限、以及库存情况
+     * @var integer 总记录数
      */
-    public $SaleResourceInfoList;
+    public $Total;
+
+    /**
+     * @var integer 当前页码（从1开始）
+     */
+    public $Page;
+
+    /**
+     * @var integer 页数
+     */
+    public $PageSize;
+
+    /**
+     * @var integer 总页数
+     */
+    public $TotalPages;
+
+    /**
+     * @var array 镜像列表
+     */
+    public $Items;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +66,11 @@ class DescribeSaleResourceInfoResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $SaleResourceInfoList 可售卖资源规格列表，包含规格、步长、单账户上限、以及库存情况
+     * @param integer $Total 总记录数
+     * @param integer $Page 当前页码（从1开始）
+     * @param integer $PageSize 页数
+     * @param integer $TotalPages 总页数
+     * @param array $Items 镜像列表
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,12 +86,28 @@ class DescribeSaleResourceInfoResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SaleResourceInfoList",$param) and $param["SaleResourceInfoList"] !== null) {
-            $this->SaleResourceInfoList = [];
-            foreach ($param["SaleResourceInfoList"] as $key => $value){
-                $obj = new ResourceSaleInfo();
+        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
+            $this->Total = $param["Total"];
+        }
+
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            $this->Page = $param["Page"];
+        }
+
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            $this->PageSize = $param["PageSize"];
+        }
+
+        if (array_key_exists("TotalPages",$param) and $param["TotalPages"] !== null) {
+            $this->TotalPages = $param["TotalPages"];
+        }
+
+        if (array_key_exists("Items",$param) and $param["Items"] !== null) {
+            $this->Items = [];
+            foreach ($param["Items"] as $key => $value){
+                $obj = new ImageDto();
                 $obj->deserialize($value);
-                array_push($this->SaleResourceInfoList, $obj);
+                array_push($this->Items, $obj);
             }
         }
 
