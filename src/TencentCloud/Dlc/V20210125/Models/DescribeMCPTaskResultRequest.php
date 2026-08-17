@@ -22,6 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getTaskId() 获取<p>任务ID</p>
  * @method void setTaskId(string $TaskId) 设置<p>任务ID</p>
+ * @method string getNextToken() 获取<p>下一次请求数据</p>
+ * @method void setNextToken(string $NextToken) 设置<p>下一次请求数据</p>
  */
 class DescribeMCPTaskResultRequest extends AbstractModel
 {
@@ -31,7 +33,13 @@ class DescribeMCPTaskResultRequest extends AbstractModel
     public $TaskId;
 
     /**
+     * @var string <p>下一次请求数据</p>
+     */
+    public $NextToken;
+
+    /**
      * @param string $TaskId <p>任务ID</p>
+     * @param string $NextToken <p>下一次请求数据</p>
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeMCPTaskResultRequest extends AbstractModel
         }
         if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
             $this->TaskId = $param["TaskId"];
+        }
+
+        if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
+            $this->NextToken = $param["NextToken"];
         }
     }
 }
